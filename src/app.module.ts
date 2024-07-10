@@ -25,7 +25,8 @@ import { SeedModule } from './seed/seed.module';
       username: process.env.DB_USER,
       password: process.env.DB_PASSWORD,
       autoLoadEntities: true, //? Carga las entidades automaticamente
-      synchronize: process.env.NODE_ENV === 'dev', //? Sincroniza cualquier cambio que hay en la BD, usualmente no sea usa en produccion
+      synchronize: true,
+      // synchronize: process.env.NODE_ENV === 'dev', //? Sincroniza cualquier cambio que hay en la BD, usualmente no sea usa en produccion
     }),
     ProductsModule,
     ContributionsModule,
