@@ -13,6 +13,11 @@ import { SeedModule } from './seed/seed.module';
   imports: [
     ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
+      ssl: process.env.NODE_ENV === 'prod',
+      extra:
+        process.env.NODE_ENV === 'prod'
+          ? { ssl: { rejectUnauthorized: false } }
+          : {},
       type: 'postgres',
       host: process.env.DB_HOST,
       port: +process.env.DB_PORT,
